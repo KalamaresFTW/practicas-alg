@@ -1,0 +1,137 @@
+Autores:
+ -Pablo Costa Oubiña - p.costa
+ -Alejandra Facal Regueiro - a.fregueiro
+ -Grupo: 3.2  (Jueves 8:30 - 10:30)
+
+Introducción:
+    En esta práctica se nos ha pedido que comparemos dos algoritmos de ordenación
+    (ordenación por selección, y ordenación por shell) en tres situaciones
+    iniciales distintas en función del vector de entrada:
+        -Vector inicializado de manera ascendente (mejor caso).
+        -Vector inicializado de manera descendente (peor caso).
+        -Vector inicializado de manera aleatoria (caso medio).
+
+    Analizamos los tiempos obtenidos determinando empíricamente la complejidad
+    de los algoritmos para cada una de las situaciones anteriormente descritas.
+
+    En cada uno de los test hemos proporcionado vectores cuyo tamaño se incrementa
+    siguiendo una proporción geométrica (de orden 2) y con un tamaño inicial
+    de 500 elementos.
+
+    * El tiempo de ejecución es menor de 500 µs, por lo tanto
+    se ha estimado a partir de 500 ejecuciones del algoritmo.
+
+Características de la máquina:
+    -> Portatil modelo Asus K55VM.
+    -> OS: Ubuntu 17.04 x86_64.
+    -> CPU: i7-3610QM @ 2.30GHz.
+    -> Memoria: 6GB DDR3 @ 1.60GHz.
+
+Mediciones:
+
+    Ordenación por selección
+
+        Mejor caso (Lista ordenada ascendentemente)
+
+             n         t(n)[µs]       t(n)/n^1.8     t(n)/n^2       t(n)/n^2.2
+           500         834.00000      0.0115617      0.0033360      0.0009626
+          1000        3445.00000      0.0137148      0.0034450      0.0008653
+          2000       12137.00000      0.0138758      0.0030343      0.0006635
+          4000       21476.00000      0.0070509      0.0013422      0.0002555
+          8000       84441.00000      0.0079614      0.0013194      0.0002187
+         16000      334215.00000      0.0090492      0.0013055      0.0001883
+         32000     1354727.00000      0.0105337      0.0013230      0.0001662
+         64000     5329484.00000      0.0119004      0.0013011      0.0001423
+        128000    21213687.00000      0.0136031      0.0012948      0.0001232
+                                  Cota subestimada  Cota ajustada  Cota sobrestimada
+                                                    (Cte 0.00130)
+
+        Caso medio (Lista con valores aleatorios)
+
+             n         t(n)[µs]       t(n)/n^1.8      t(n)/n^2      t(n)/n^2.2
+           500         353.05200*     0.0048943      0.0014122      0.0004075
+          1000        1366.00000      0.0054381      0.0013660      0.0003431
+          2000        5315.00000      0.0060764      0.0013288      0.0002906
+          4000       21668.00000      0.0071140      0.0013542      0.0002578
+          8000       84838.00000      0.0079989      0.0013256      0.0002197
+         16000      334349.00000      0.0090528      0.0013061      0.0001884
+         32000     1331448.00000      0.0103527      0.0013002      0.0001633
+         64000     5316331.00000      0.0118710      0.0012979      0.0001419
+        128000    21298089.00000      0.0136572      0.0012999      0.0001237
+                                  Cota subestimada  Cota ajustada  Cota sobrestimada
+                                                    (Cte 0.00130)
+
+        Peor caso (Lista ordenada descendentemente)
+
+             n          t(n)[µs]      t(n)/n^1.8     t(n)/n^2       t(n)/n^2.2
+           500         354.74600*     0.0049178      0.0014190      0.0004094
+          1000        1428.00000      0.0056850      0.0014280      0.0003587
+          2000        5712.00000      0.0065303      0.0014280      0.0003123
+          4000       22875.00000      0.0075102      0.0014297      0.0002722
+          8000       90472.00000      0.0085301      0.0014136      0.0002343
+         16000      358250.00000      0.0097000      0.0013994      0.0002019
+         32000     1426115.00000      0.0110888      0.0013927      0.0001749
+         64000     5727611.00000      0.0127894      0.0013983      0.0001529
+        128000    22818687.00000      0.0146323      0.0013927      0.0001326
+                                 Cota subestimada  Cota ajustada  Cota sobrestimada
+                                               (Cte 0.00140)
+
+    Ordenación shell
+
+        Mejor caso (Lista ordenada ascendentemente)
+             n          t(n)[µs]      t(n)/n         t(n)/n^1.15    t(n)/n^1.5
+           500          18.01000*     0.0360200      0.0141807      0.0016109
+          1000          41.22800*     0.0412280      0.0146282      0.0013037
+          2000          96.20200*     0.0481010      0.0153815      0.0010756
+          4000         201.54000*     0.0503850      0.0145209      0.0007967
+          8000         446.57200*     0.0558215      0.0144990      0.0006241
+         16000         962.00000      0.0601250      0.0140746      0.0004753
+         32000        2100.00000      0.0656250      0.0138451      0.0003669
+         64000        4484.00000      0.0700625      0.0133217      0.0002769
+        128000       10097.00000      0.0788828      0.0135176      0.0002205
+                                 Cota subestimada  Cota ajustada  Cota sobrestimada
+                                                   (Cte 0.00135)
+
+        Caso medio (Lista con valores aleatorios)
+             n         t(n)[µs]       t(n)/n        t(n)/n^1.25     t(n)/n^1.6
+           500          52.26600*     0.1045320      0.0221058      0.0025111
+          1000         133.31000*     0.1333100      0.0237062      0.0021128
+          2000         306.02000*     0.1530100      0.0228803      0.0015999
+          4000         719.00000      0.1797500      0.0226024      0.0012400
+          8000        1526.00000      0.1907500      0.0201694      0.0008682
+         16000        3609.00000      0.2255625      0.0200557      0.0006773
+         32000        8535.00000      0.2667188      0.0199419      0.0005284
+         64000       19471.00000      0.3042344      0.0191277      0.0003976
+        128000       45858.00000      0.3582656      0.0189410      0.0003089
+                                  Cota subestimada  Cota ajustada  Cota sobrestimada
+                                                    (Cte 0.00190)
+
+        Peor caso (Lista ordenada descendentemente)
+             n         t(n)[µs]       t(n)/n         t(n)/n^1.15    t(n)/n^1.5
+           500          26.99000*     0.0539800      0.0212514      0.0024141
+          1000          60.18400*     0.0601840      0.0213541      0.0019032
+          2000         136.20400*     0.0681020      0.0217774      0.0015228
+          4000         290.25000*     0.0725625      0.0209124      0.0011473
+          8000         635.00000      0.0793750      0.0206168      0.0008874
+         16000        1361.00000      0.0850625      0.0199122      0.0006725
+         32000        2912.00000      0.0910000      0.0191986      0.0005087
+         64000        6557.00000      0.1024531      0.0194804      0.0004050
+        128000       14148.00000      0.1105312      0.0189410      0.0003089
+                                  Cota subestimada  Cota ajustada  Cota sobrestimada
+                                                    (Cte 0.00190)
+
+
+Conclusiones:
+    Después de haber ejecutado el algoritmo de ordenación shell hemos comprobado
+    que el tiempo de cada uno de ellos se mantienen relativamente constante
+    independientemente de la ordenación inicial del vector.
+
+    Dado que la complejidad del algoritmo de selección es siempre cuadrática
+    independientemente de la ordenación inicial del vector. Se puede ver que
+    los tiempos son similares para cada una de las tres situaciones, sin embargo
+    los tiempos del mejor caso comparados con los del peor caso son peores hasta
+    cierto tamaño del vector (entre 2000 y 4000 elementos) a partir de ese valor
+    los tiempos son mayores para el peor caso.
+
+    Finalmente podemos concluir que la ordenación shell es mejor que la ordenación
+    por selección en cualquier caso.

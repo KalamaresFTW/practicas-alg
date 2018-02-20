@@ -1,0 +1,113 @@
+Autores:
+ -Pablo Costa Oubiña - p.costa
+ -Alejandra Facal Regueiro - a.fregueiro
+ -Grupo: 3.2  (Jueves 8:30 - 10:30)
+
+Introducción:
+
+    En esta práctica se nos ha pedido que construyamos un programa de consulta de
+    sinónimos de una palabra dada, usando los datos en el archivo sinonimos.txt
+    con el objetivo de comparar diferentes implementaciones de Diccionarios de Datos.
+
+    Para cada una de las funciones de dispersión (dispersiónA y dispersionB) y
+    con cada uno de las funcionesd de resolucion de colisiones veremos el
+    numero total de colisiones producidas al insertar todos los datos.
+
+    Analizamos los tiempos obtenidos determinando empíricamente la complejidad
+    de la cada una de las funciones de dispersion y para cada una de las Funciones
+    de resolucion de colisiones.
+
+
+    * El tiempo de ejecución es menor de 500 µs, por lo tanto
+    se ha estimado a partir de 500 ejecuciones del algoritmo.
+
+Características de la máquina:
+
+    -> Portatil modelo Asus K55VM.
+    -> OS: Ubuntu 17.04 x86_64.
+    -> CPU: i7-3610QM @ 2.30GHz.
+    -> Memoria: 6GB DDR3 @ 1.60GHz.
+
+
+
+
+Mediciones:
+Colisiones totales con dispersionA y resolucion lineal: 170605914
+***TEST TIEMPOS BUSQUEDA: DISPERSION A, LINEAL
+     n         t(n)         t(n)/n^0.9        t(n)/n^2.25    t(n)/n^2.55
+   125      23394.00000      303.3091583      0.4477720      0.1051923
+   250      49543.00000      344.2201983      0.1993505      0.0380396
+   500      90607.00000      337.3562897      0.0766442      0.0118792
+  1000      179951.00000      359.0495080      0.0320003      0.0040286
+  2000      362154.00000      387.2276575      0.0135387      0.0013844
+  4000      740279.00000      424.1715374      0.0058178      0.0004832
+  8000      1490972.00000      457.8134972      0.0024633      0.0001662
+ 16000      2985538.00000      491.2637501      0.0010369      0.0000568
+ 32000      5876559.00000      518.1890454      0.0004291      0.0000191
+ 64000      11690709.00000      552.4322047      0.0001794      0.0000065
+                                                  cte=(0.0004,0.0002)
+
+***TEST TIEMPOS BUSQUEDA: DISPERSION B, LINEAL
+Colisiones totales con dispersionB y resolucion lineal: 16965
+     n         t(n)         t(n)/n^0.8      t(n)/n^1.4     t(n)/n^1.5
+*   125        16.70800      0.3510722      0.0193754      0.0119553
+*   250        35.18000      0.4245646      0.0154589      0.0088999
+*   500        68.03800      0.4716019      0.0113291      0.0060855
+*  1000       136.05200      0.5416327      0.0085843      0.0043023
+*  2000       253.50200      0.5796387      0.0060609      0.0028342
+*  4000       491.61600      0.6456215      0.0044539      0.0019433
+  8000       943.00000      0.7112785      0.0032373      0.0013179
+ 16000      1857.00000      0.8044811      0.0024157      0.0009176
+ 32000      3552.00000      0.8837978      0.0017509      0.0006205
+ 64000      9955.00000      1.4226472      0.0018595      0.0006149
+                                        cte=(0.00175,0.00185)
+
+***TEST TIEMPOS BUSQUEDA: DISPERSION A, CUADRATICA
+Colisiones totales con dispersionA y resolucion cuadratica: 1690964
+     n         t(n)         t(n)/n^0.9      t(n)/n^1.26    t(n)/n^1.6
+*   125       348.11800      4.5134384      0.7936333      0.1536988
+   250       727.00000      5.0511290      0.6920381      0.1058840
+   500      1393.00000      5.1865453      0.5536674      0.0669266
+  1000      2728.00000      5.4430765      0.4527353      0.0432359
+  2000      5391.00000      5.7642448      0.3735696      0.0281852
+  4000      12688.00000      7.2700812      0.3671112      0.0218825
+  8000      24783.00000      7.6097954      0.2994060      0.0140997
+ 16000      48880.00000      8.0430971      0.2465699      0.0091736
+ 32000      93540.00000      8.2482629      0.1970191      0.0057910
+ 64000      181852.00000      8.5932257      0.1999305      0.0037139
+                                              cte=0.19
+
+***TEST TIEMPOS BUSQUEDA: DISPERSION B, CUADRATICA
+Colisiones totales con dispersionB y resolucion cuadratica: 13366
+     n         t(n)         t(n)/n^0.8       t(n)/n        t(n)/n^1.16
+*   125        16.61200      0.3490550      0.1328960      0.0613771
+*   250        35.83000      0.4324090      0.1433200      0.0592429
+*   500        74.19200      0.5142580      0.1483840      0.0548974
+*  1000       132.98800      0.5294347      0.1329880      0.0440365
+*  2000       255.15600      0.5834206      0.1275780      0.0378104
+*  4000       493.72000      0.6483846      0.1234300      0.0327409
+  8000       877.00000      0.6614965      0.1096250      0.0260265
+ 16000      1791.00000      0.7758889      0.1119375      0.0237857
+ 32000      3641.00000      0.9059425      0.1137813      0.0216395
+ 64000      9988.00000      1.4273632      0.1560625      0.0265650
+                                            cte=0.11
+La última medición (64000) es anómala
+
+Conclusiones:
+
+Tras haber puesto a prueba cada una de las distintas combinaciones de función de
+dispersion y función de resolucion de colisiones, hemos llegado a la conclusión
+de que la combinación más óptima es la que utiliza la función de dispersión B
+y la función de resolución de colisiones cuadrática.
+
+  Colisiones totales con dispersionA y resolucion lineal: 170605914
+  Colisiones totales con dispersionB y resolucion lineal: 16965
+  Colisiones totales con dispersionA y resolucion cuadratica: 1690964
+  Colisiones totales con dispersionB y resolucion cuadratica: 13366
+
+Podemos ver que es la que menos colisiones produce , y con la que se obtienen
+mejores tiempos de búsqueda (como se puede apreciar en las tablas de tiempos)
+
+También cabe comentar que la combinación dispersión A con resolución de colisiones
+lineal es una opción que causa un número anormalmente alto de colisiones
+(más de 170.000.000!!)

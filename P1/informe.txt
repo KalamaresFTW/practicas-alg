@@ -1,0 +1,56 @@
+-Tests ejecutados en un portátil Asus K55VM.
+	-> OS: Ubuntu 17.04 x86_64
+	-> CPU: i7-3610QM @ 2.30GHz
+	-> Memoria: 6GB DDR3 @ 1.60GHz 
+
+-Mediciones:
+	En esta práctica aplicamos dos algoritmos que resuelven el problema de la suma de la subsecuencia máxima.
+  Se ha implementado el algoritmo en C a partir del pseudocódigo proporcionado.
+  Se ha validado que las dos funciones devuelven el mismo resultado para una entrada dada.
+  Para realizar las pruebas se ha ejecutado cada algoritmo pasandole un vector con un número
+  cada vez mayor de elementos (empezando en 500 y siguiendo una progresión geometrica de razón 2).
+
+  sumaSubMax1
+       n           t(n)[µs]     t(n)/n^1.8     t(n)/n^2       t(n)/n^2.2
+  --------------------------------------------------------------------
+     500         359.068*       0.0049777      0.0014363      0.0004144 
+    1000        1440.000        0.0057327      0.0014400      0.0003617 
+    2000        5521.000        0.0063120      0.0013802      0.0003018 
+    4000       22364.000        0.0073425      0.0013977      0.0002661 
+    8000       87747.000        0.0082731      0.0013710      0.0002272 
+   16000      341365.000        0.0092428      0.0013335      0.0001924 
+   32000     1356024.000        0.0105438      0.0013242      0.0001663 
+                           Cota subestimada  Cota ajustada  Cota sobrestimada
+                                              (Cte 0.00132)
+
+  * El tiempo de ejecución es menor de 500 µs, por lo tanto
+  se ha estimado a partir de 500 ejecuciones del algoritmo.
+
+  sumaSubMax2
+      n            t(n)[µs]    t(n)/n^1.8     t(n)/n         t(n)/nlogn
+  --------------------------------------------------------------------
+     500         1.56400*      0.0108408      0.0031280      0.0005033 
+    1000         3.13800*      0.0124926      0.0031380      0.0004543 
+    2000         5.89200*      0.0134722      0.0029460      0.0003876 
+    4000        10.78600*      0.0141649      0.0026965      0.0003251 
+    8000        22.54600*      0.0170058      0.0028183      0.0003136 
+   16000        41.10800*      0.0178086      0.0025692      0.0002654 
+   32000        81.96400*      0.0203940      0.0025614      0.0002469 
+   64000       160.30600*      0.0229090      0.0025048      0.0002263 
+  128000       317.88400*      0.0260916      0.0024835      0.0002112 
+  256000       647.00000       0.0305009      0.0025273      0.0002030 
+  512000      1327.00000       0.0359298      0.0025918      0.0001972 
+  1024000     2654.00000       0.0412725      0.0025918      0.0001873 
+  2048000     5094.00000       0.0454983      0.0024873      0.0001712 
+                           Cota subestimada  Cota ajustada  Cota sobrestimada
+                                              (Cte 0.00250)
+
+  * El tiempo de ejecución es menor de 500 µs, por lo tanto
+  se ha estimado a partir de 500 ejecuciones del algoritmo.
+  Se han realizado mediciones adicionales (13 en total) para evitar 
+  la aparición de mediciones anómalas.
+
+
+-Conclusiones:
+La cota ajustada para el primer algoritmo es O(n^2), y la del segundo O(n)
+Podemos concluir entonces que el primer algoritmo es mucho menos eficiente.

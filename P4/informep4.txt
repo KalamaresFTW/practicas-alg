@@ -1,0 +1,55 @@
+Autores:
+ -Pablo Costa Oubiña - p.costa
+ -Alejandra Facal Regueiro - a.fregueiro
+ -Grupo: 3.2  (Jueves 8:30 - 10:30)
+
+Introducción:
+
+    En esta práctica hemos implementado el algoritmo de Prim, el cual nos
+    devuelve el conjunto de parejas de nodos (y el peso) que conforman el árbol
+    de recubrimiento mínimo de un grafo no dirigido
+    (el grafo está representado mediante una matriz de adyacencia).
+    Para representar el conjunto de nodos solución se ha utilizado una
+    implementación de cola circular a base de vectores.
+
+    A continuación se han realizado tres pruebas a modo de validación (con los
+    ejemplos que se nos han facilitado) para comprobar el correcto
+    funcionamiento del algoritmo.
+
+    Tras comprobar que el algoritmo funciona correctamente, determinamos
+    empíricamente su complejidad midiendo el tiempo que tarda en ejecutarse
+    con una serie de grafos completos no dirigidos aleatorios. Grafos, cuyo
+    número de nodos aumenta siguiendo una progresión geométrica de razón 2, y
+    empieza con grafos de 10 nodos.
+
+Características de la máquina en las que se han realizado las mediciones:
+    -> Portátil modelo Asus K55VM.
+    -> OS: Ubuntu 17.04 x86_64.
+    -> CPU: i7-3610QM @ 2.30GHz.
+    -> Memoria: 6GB DDR3 @ 1.60GHz.
+
+Mediciones:
+    -> n : número de nodos del grafo de entrada.
+    -> Cota subestimada: 1.8
+    -> Cota ajustada: 2
+    -> Cota sobreestimada: 1.2
+    -> (*): el tiempo de ejecución es menor de 500 µs.
+
+                                 subestimada         ajustada    sobreestimada
+        n          t(n)[µs]       t(n)/n^1.8         t(n)/n^2       t(n)/n^2.2
+-------------------------------------------------------------------------------
+(*)    10           1.67000        0.0333209        0.0167000        0.0105370
+(*)    20           4.79000        0.0294161        0.0119750        0.0065776
+(*)    40          14.55000        0.0275018        0.0090938        0.0043484
+(*)    80          48.93000        0.0284657        0.0076453        0.0031826
+(*)   160         181.23000        0.0324508        0.0070793        0.0025655
+      320         748.00000        0.0412237        0.0073047        0.0023045
+      640        3200.00000        0.0542805        0.0078125        0.0021456
+-------------------------------------------------------------------------------
+                                                  (cte = 0.007)
+-> El tiempo está medido en microsegundos (µs).
+
+Conclusiones:
+     Después de realizar el análisis del algoritmo, tal y como muestran las
+     mediciones indicadas en el apartado anterior, se puede decir que, para
+     el algoritmo de Prim , el orden de complejidad computacional es cuadrática.
